@@ -37,7 +37,12 @@ function App() {
   });
 
   return (
-    <div style={{ padding: '1rem', fontFamily: 'sans-serif' }}>
+    <div style={{
+      padding: '1rem 2rem',
+      fontFamily: 'sans-serif',
+      maxWidth: '1400px',
+      margin: '0 auto'
+    }}>
       <h1>🌍 Country Explorer</h1>
 
       <Filter
@@ -54,8 +59,9 @@ function App() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '1rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '1.5rem',
+            padding: '0 1rem',
           }}
         >
           {filteredCountries.map((country) => (

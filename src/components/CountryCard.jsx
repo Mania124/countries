@@ -7,7 +7,7 @@ function CountryCard({ country }) {
         padding: '1rem',
         backgroundColor: '#f9f9f9',
         textAlign: 'left',
-        minHeight: '320px',
+        minHeight: '280px',
       }}
     >
       <img
@@ -15,7 +15,7 @@ function CountryCard({ country }) {
         alt={`Flag of ${country.name.common}`}
         style={{
           width: '100%',
-          height: '120px',
+          height: '100px',
           objectFit: 'cover',
           borderRadius: '4px',
           marginBottom: '0.5rem'
@@ -33,28 +33,28 @@ function CountryCard({ country }) {
       <p style={{
         margin: '0.25rem 0',
         color: '#555',
-        fontSize: '0.9rem'
+        fontSize: '0.85rem'
       }}>
         <strong>Continent:</strong> {country.region}
       </p>
       <p style={{
         margin: '0.25rem 0',
         color: '#555',
-        fontSize: '0.9rem'
+        fontSize: '0.85rem'
       }}>
         <strong>Capital:</strong> {country.capital?.[0] || 'N/A'}
       </p>
       <p style={{
         margin: '0.25rem 0',
         color: '#555',
-        fontSize: '0.9rem'
+        fontSize: '0.85rem'
       }}>
         <strong>Population:</strong> {country.population ? country.population.toLocaleString() : 'N/A'}
       </p>
       <p style={{
         margin: '0.25rem 0',
         color: '#555',
-        fontSize: '0.9rem'
+        fontSize: '0.85rem'
       }}>
         <strong>Area:</strong> {country.area ? `${country.area.toLocaleString()} sq km` : 'N/A'}
       </p>
