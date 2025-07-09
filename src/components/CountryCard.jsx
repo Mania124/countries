@@ -1,24 +1,27 @@
+import './CountryCard.css';
+
 function CountryCard({ country }) {
   return (
-    <div
-      style={{
-        border: '1px solid #ccc',
-        borderRadius: '8px',
-        padding: '1rem',
-        backgroundColor: '#f9f9f9',
-      }}
-    >
+    <div className="country-card">
       <img
+        className="country-flag"
         src={country.flags.png}
         alt={`Flag of ${country.name.common}`}
-        style={{ width: '100%', borderRadius: '4px' }}
       />
-      <h2 style={{ marginTop: '0.5rem' }}>{country.name.common}</h2>
-      <p>
-        <strong>Region:</strong> {country.region}
+      <h2 className="country-name">
+        {country.name.common}
+      </h2>
+      <p className="country-info">
+        <strong>Continent:</strong> {country.region}
       </p>
-      <p>
-        <strong>Population:</strong> {country.population.toLocaleString()}
+      <p className="country-info">
+        <strong>Capital:</strong> {country.capital?.[0] || 'N/A'}
+      </p>
+      <p className="country-info">
+        <strong>Population:</strong> {country.population ? country.population.toLocaleString() : 'N/A'}
+      </p>
+      <p className="country-info">
+        <strong>Area:</strong> {country.area ? `${country.area.toLocaleString()} sq km` : 'N/A'}
       </p>
     </div>
   );
