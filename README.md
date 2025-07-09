@@ -2,6 +2,12 @@
 
 A modern, responsive React application that displays comprehensive information about countries worldwide using the REST Countries API. Features a fixed header navigation, interactive country cards, and advanced filtering capabilities for an optimal user experience.
 
+## 🌐 Live Demo
+
+**[View Live App](https://Mania124.github.io/countries)** 🚀
+
+Experience the Country Explorer in action at: `https://Mania124.github.io/countries`
+
 ## ✨ Features
 
 ### 🗺️ **Core Functionality**
@@ -53,6 +59,27 @@ npm run dev
 ```
 
 4. Open your browser and navigate to `http://localhost:5173`
+
+## 🚀 Deployment
+
+This application is deployed on GitHub Pages with automatic CI/CD deployment.
+
+### Live Application
+- **URL**: [https://Mania124.github.io/countries](https://Mania124.github.io/countries)
+- **Hosting**: GitHub Pages
+- **Deployment**: Automatic via GitHub Actions
+
+### Manual Deployment
+To deploy manually:
+```bash
+npm run deploy
+```
+
+### Deployment Process
+1. **Automatic**: Every push to main branch triggers deployment
+2. **Build**: GitHub Actions builds the optimized production bundle
+3. **Deploy**: Built files are automatically deployed to GitHub Pages
+4. **Live**: Changes are reflected on the live site within minutes
 
 ## 🏗️ Project Structure
 
@@ -141,6 +168,12 @@ This application uses the [REST Countries API](https://restcountries.com/) to fe
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
+
+## 🔗 Links
+
+- **Live Application**: [https://Mania124.github.io/countries](https://Mania124.github.io/countries)
+- **Repository**: [https://github.com/Mania124/countries](https://github.com/Mania124/countries)
+- **REST Countries API**: [https://restcountries.com](https://restcountries.com)
 
 ## 📄 License
 
