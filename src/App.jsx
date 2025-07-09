@@ -6,12 +6,26 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [regionFilter, setRegionFilter] = useState('All');
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    setIsLoading(true);
+    setError(null);
+
     fetch(API_URL)
-      .then(res => res.json())
-      .then(data => setCountries(data))
-      .catch(err => console.error('Fetch error:', err));
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch countries.');
+        return res.json();
+      })
+      .then(data => {
+        setCountries(data);
+        setIsLoading(false);
+      })
+      .catch(err => {
+        setError(err.message || 'Something went wrong');
+        setIsLoading(false);
+      });
   }, []);
 
   const filteredCountries = countries.filter(country => {
@@ -42,16 +56,21 @@ function App() {
         </select>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-        {filteredCountries.map(country => (
-          <div key={country.cca3} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '1rem' }}>
-            <img src={country.flags.png} alt={`Flag of ${country.name.common}`} style={{ width: '100%' }} />
-            <h2>{country.name.common}</h2>
-            <p><strong>Region:</strong> {country.region}</p>
-            <p><strong>Population:</strong> {country.population.toLocaleString()}</p>
-          </div>
-        ))}
-      </div>
+      {isLoading && <p>Loading countries...</p>}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+
+      {!isLoading && !error && (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+          {filteredCountries.map(country => (
+            <div key={country.cca3} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '1rem' }}>
+              <img src={country.flags.png} alt={`Flag of ${country.name.common}`} style={{ width: '100%' }} />
+              <h2>{country.name.common}</h2>
+              <p><strong>Region:</strong> {country.region}</p>
+              <p><strong>Population:</strong> {country.population.toLocaleString()}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
