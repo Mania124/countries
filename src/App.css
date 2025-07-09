@@ -1,3 +1,45 @@
+/* App Container */
+.app-container {
+  padding: 1rem 2rem;
+  font-family: sans-serif;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.app-title {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Loading and Error States */
+.loading-message {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin: 2rem 0;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #ffe6e6;
+  border: 1px solid #ffcccc;
+  border-radius: 4px;
+}
+
+/* Countries Grid */
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+  margin-top: 2rem;
+}
+
+/* Legacy styles (keeping for compatibility) */
 #root {
   max-width: 1280px;
   margin: 0 auto;

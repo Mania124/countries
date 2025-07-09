@@ -1,18 +1,20 @@
+import './Filter.css';
+
 function Filter({ searchTerm, onSearchChange, regionFilter, onRegionChange }) {
   return (
-    <div style={{ marginBottom: '1rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <div className="filter-container">
       <input
         type="text"
         placeholder="Search by name..."
         value={searchTerm}
         onChange={e => onSearchChange(e.target.value)}
-        style={{ padding: '0.5rem', flex: '1' }}
+        className="search-input"
       />
 
       <select
         value={regionFilter}
         onChange={e => onRegionChange(e.target.value)}
-        style={{ padding: '0.5rem' }}
+        className="region-select"
       >
         <option value="All">All Regions</option>
         <option value="Africa">Africa</option>
