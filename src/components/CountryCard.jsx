@@ -6,19 +6,43 @@ function CountryCard({ country }) {
         borderRadius: '8px',
         padding: '1rem',
         backgroundColor: '#f9f9f9',
+        textAlign: 'left',
+        minHeight: '250px',
       }}
     >
       <img
         src={country.flags.png}
         alt={`Flag of ${country.name.common}`}
-        style={{ width: '100%', borderRadius: '4px' }}
+        style={{
+          width: '100%',
+          height: '120px',
+          objectFit: 'cover',
+          borderRadius: '4px',
+          marginBottom: '0.5rem'
+        }}
       />
-      <h2 style={{ marginTop: '0.5rem' }}>{country.name.common}</h2>
-      <p>
-        <strong>Region:</strong> {country.region}
+      <h2 style={{
+        marginTop: '0',
+        marginBottom: '0.5rem',
+        fontSize: '1.2rem',
+        color: '#333',
+        fontWeight: 'bold'
+      }}>
+        {country.name.common}
+      </h2>
+      <p style={{
+        margin: '0.25rem 0',
+        color: '#555',
+        fontSize: '0.9rem'
+      }}>
+        <strong>Continent:</strong> {country.region}
       </p>
-      <p>
-        <strong>Population:</strong> {country.population.toLocaleString()}
+      <p style={{
+        margin: '0.25rem 0',
+        color: '#555',
+        fontSize: '0.9rem'
+      }}>
+        <strong>Area:</strong> {country.area ? `${country.area.toLocaleString()} sq km` : 'N/A'}
       </p>
     </div>
   );
