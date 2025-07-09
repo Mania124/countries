@@ -39,25 +39,28 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1 className="app-title">🌍 Country Explorer</h1>
+      <div className="app-header">
+        <h1 className="app-title">🌍 Country Explorer</h1>
+        <Filter
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
+          regionFilter={regionFilter}
+          onRegionChange={setRegionFilter}
+        />
+      </div>
 
-      <Filter
-        searchTerm={searchTerm}
-        onSearchChange={setSearchTerm}
-        regionFilter={regionFilter}
-        onRegionChange={setRegionFilter}
-      />
+      <div className="app-content">
+        {isLoading && <p className="loading-message">Loading countries...</p>}
+        {error && <p className="error-message">{error}</p>}
 
-      {isLoading && <p className="loading-message">Loading countries...</p>}
-      {error && <p className="error-message">{error}</p>}
-
-      {!isLoading && !error && (
-        <div className="countries-grid">
-          {filteredCountries.map((country) => (
-            <CountryCard key={country.cca3} country={country} />
-          ))}
-        </div>
-      )}
+        {!isLoading && !error && (
+          <div className="countries-grid">
+            {filteredCountries.map((country) => (
+              <CountryCard key={country.cca3} country={country} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
