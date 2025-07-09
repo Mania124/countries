@@ -4,9 +4,9 @@ A modern, responsive React application that displays comprehensive information a
 
 ## 🌐 Live Demo
 
-**[View Live App](https://Mania124.github.io/countries)** 🚀
+**[View Live App](https://countries-dusky-five.vercel.app/)** 🚀
 
-Experience the Country Explorer in action at: `https://Mania124.github.io/countries`
+Experience the Country Explorer in action at: `https://countries-dusky-five.vercel.app/`
 
 ## ✨ Features
 
@@ -62,12 +62,12 @@ npm run dev
 
 ## 🚀 Deployment
 
-This application is deployed on GitHub Pages with automatic CI/CD deployment.
+This application is deployed on Vercel with automatic CI/CD deployment.
 
 ### Live Application
-- **URL**: [https://Mania124.github.io/countries](https://Mania124.github.io/countries)
-- **Hosting**: GitHub Pages
-- **Deployment**: Automatic via GitHub Actions
+- **URL**: [https://countries-dusky-five.vercel.app/](https://countries-dusky-five.vercel.app/)
+- **Hosting**: Vercel
+- **Deployment**: Automatic via Vercel Git integration
 
 ### Manual Deployment
 To deploy manually:
@@ -77,9 +77,9 @@ npm run deploy
 
 ### Deployment Process
 1. **Automatic**: Every push to main branch triggers deployment
-2. **Build**: GitHub Actions builds the optimized production bundle
-3. **Deploy**: Built files are automatically deployed to GitHub Pages
-4. **Live**: Changes are reflected on the live site within minutes
+2. **Build**: Vercel builds the optimized production bundle
+3. **Deploy**: Built files are automatically deployed to Vercel
+4. **Live**: Changes are reflected on the live site within seconds
 
 ## 🏗️ Project Structure
 
@@ -97,6 +97,9 @@ src/
 public/
 ├── globe-favicon.svg    # Custom globe favicon
 └── index.html          # HTML template with updated title
+├── LICENSE             # MIT License
+├── CONTRIBUTORS.md     # Contributors guide and acknowledgments
+└── README.md          # Project documentation
 ```
 
 ## 🌐 API Integration
@@ -163,15 +166,26 @@ This application uses the [REST Countries API](https://restcountries.com/) to fe
 
 ## 🤝 Contributing
 
+We welcome contributions from the community! See [CONTRIBUTORS.md](CONTRIBUTORS.md) for detailed guidelines.
+
+### Quick Start
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+## 👥 Contributors
+
+Thanks to all the amazing people who have contributed to Country Explorer:
+
+- **[Mania124](https://github.com/Mania124)** - *Project Creator & Main Developer*
+
+*See [CONTRIBUTORS.md](CONTRIBUTORS.md) for detailed contribution guidelines and how to get involved!*
+
 ## 🔗 Links
 
-- **Live Application**: [https://Mania124.github.io/countries](https://Mania124.github.io/countries)
+- **Live Application**: [https://countries-dusky-five.vercel.app/](https://countries-dusky-five.vercel.app/)
 - **Repository**: [https://github.com/Mania124/countries](https://github.com/Mania124/countries)
 - **REST Countries API**: [https://restcountries.com](https://restcountries.com)
 
