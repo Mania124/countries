@@ -7,7 +7,7 @@ function CountryCard({ country }) {
         padding: '1rem',
         backgroundColor: '#f9f9f9',
         textAlign: 'left',
-        minHeight: '250px',
+        minHeight: '320px',
       }}
     >
       <img
@@ -36,6 +36,20 @@ function CountryCard({ country }) {
         fontSize: '0.9rem'
       }}>
         <strong>Continent:</strong> {country.region}
+      </p>
+      <p style={{
+        margin: '0.25rem 0',
+        color: '#555',
+        fontSize: '0.9rem'
+      }}>
+        <strong>Capital:</strong> {country.capital?.[0] || 'N/A'}
+      </p>
+      <p style={{
+        margin: '0.25rem 0',
+        color: '#555',
+        fontSize: '0.9rem'
+      }}>
+        <strong>Population:</strong> {country.population ? country.population.toLocaleString() : 'N/A'}
       </p>
       <p style={{
         margin: '0.25rem 0',
