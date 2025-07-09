@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import CountryCard from './components/CountryCard';
 import Filter from './components/Filter';
 
@@ -12,22 +13,21 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
-    setError(null);
+    const fetchCountries = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
 
-    fetch(API_URL)
-      .then((res) => {
-        if (!res.ok) throw new Error('Failed to fetch countries.');
-        return res.json();
-      })
-      .then((data) => {
-        setCountries(data);
+        const response = await axios.get(API_URL);
+        setCountries(response.data);
+      } catch (err) {
+        setError(err.response?.data?.message || err.message || 'Failed to fetch countries');
+      } finally {
         setIsLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message || 'Something went wrong');
-        setIsLoading(false);
-      });
+      }
+    };
+
+    fetchCountries();
   }, []);
 
   const filteredCountries = countries.filter((country) => {
