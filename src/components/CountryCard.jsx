@@ -1,6 +1,9 @@
+import './CountryCard.css';
+
 function CountryCard({ country }) {
   return (
     <div
+      className="country-card"
       style={{
         border: '1px solid #ccc',
         borderRadius: '8px',
@@ -8,9 +11,12 @@ function CountryCard({ country }) {
         backgroundColor: '#f9f9f9',
         textAlign: 'left',
         minHeight: '280px',
+        transition: 'all 0.3s ease',
+        cursor: 'pointer',
       }}
     >
       <img
+        className="country-flag"
         src={country.flags.png}
         alt={`Flag of ${country.name.common}`}
         style={{
@@ -21,7 +27,7 @@ function CountryCard({ country }) {
           marginBottom: '0.5rem'
         }}
       />
-      <h2 style={{
+      <h2 className="country-name" style={{
         marginTop: '0',
         marginBottom: '0.5rem',
         fontSize: '1.2rem',

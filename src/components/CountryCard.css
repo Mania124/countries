@@ -1,0 +1,71 @@
+.country-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.country-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: #4A90E2;
+  background-color: #ffffff;
+}
+
+.country-card:hover .country-flag {
+  transform: scale(1.05);
+}
+
+.country-card:hover .country-name {
+  color: #4A90E2;
+}
+
+.country-card:active {
+  transform: translateY(-4px);
+  transition: all 0.1s ease;
+}
+
+.country-flag {
+  transition: transform 0.3s ease;
+}
+
+.country-name {
+  transition: color 0.3s ease;
+}
+
+/* Add a subtle glow effect on hover */
+.country-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(74, 144, 226, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: 8px;
+}
+
+.country-card:hover::before {
+  opacity: 1;
+}
+
+/* Responsive hover effects for different screen sizes */
+@media (max-width: 768px) {
+  .country-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* Focus styles for accessibility */
+.country-card:focus {
+  outline: 2px solid #4A90E2;
+  outline-offset: 2px;
+}
+
+.country-card:focus:not(:focus-visible) {
+  outline: none;
+}
