@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import CountryCard from './components/CountryCard';
 import Filter from './components/Filter';
+import Footer from './components/Footer';
 import './App.css';
 
 const API_URL = 'https://restcountries.com/v3.1/all?fields=name,flags,region,area,capital,population,cca3';
@@ -31,16 +32,28 @@ function App() {
     fetchCountries();
   }, []);
 
-  const filteredCountries = countries.filter((country) => {
-    const matchesSearch = country.name.common.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesRegion = regionFilter === 'All' || country.region === regionFilter;
-    return matchesSearch && matchesRegion;
-  });
+  const filteredCountries = countries
+    .filter((country) => {
+      const matchesSearch = country.name.common.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesRegion = regionFilter === 'All' || country.region === regionFilter;
+      return matchesSearch && matchesRegion;
+    })
+    .sort((a, b) => a.name.common.localeCompare(b.name.common));
+
+  const handleHeaderClick = () => {
+    // Reset all filters and reload data
+    setSearchTerm('');
+    setRegionFilter('All');
+    setError(null);
+
+    // Optionally reload the page completely
+    // window.location.reload();
+  };
 
   return (
     <div className="app-container">
       <div className="app-header">
-        <h1 className="app-title">🌍 Country Explorer</h1>
+        <h1 className="app-title" onClick={handleHeaderClick}>🌍 Country Explorer</h1>
         <Filter
           searchTerm={searchTerm}
           onSearchChange={setSearchTerm}
@@ -61,6 +74,8 @@ function App() {
           </div>
         )}
       </div>
+
+      <Footer />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 /* App Container */
 .app-container {
   font-family: sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -30,6 +30,18 @@
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-feature-settings: "liga", "kern";
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  user-select: none;
+}
+
+.app-title:hover {
+  transform: scale(1.02);
+  opacity: 0.8;
+}
+
+.app-title:active {
+  transform: scale(0.98);
 }
 
 /* Scrollable Content Area */
