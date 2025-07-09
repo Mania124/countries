@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import CountryCard from './components/CountryCard';
+import Filter from './components/Filter';
 
 const API_URL = 'https://restcountries.com/v3.1/all';
 
@@ -14,60 +16,50 @@ function App() {
     setError(null);
 
     fetch(API_URL)
-      .then(res => {
+      .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch countries.');
         return res.json();
       })
-      .then(data => {
+      .then((data) => {
         setCountries(data);
         setIsLoading(false);
       })
-      .catch(err => {
+      .catch((err) => {
         setError(err.message || 'Something went wrong');
         setIsLoading(false);
       });
   }, []);
 
-  const filteredCountries = countries.filter(country => {
+  const filteredCountries = countries.filter((country) => {
     const matchesSearch = country.name.common.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesRegion = regionFilter === 'All' || country.region === regionFilter;
     return matchesSearch && matchesRegion;
   });
 
   return (
-    <div style={{ padding: '1rem' }}>
+    <div style={{ padding: '1rem', fontFamily: 'sans-serif' }}>
       <h1>🌍 Country Explorer</h1>
 
-      <div style={{ marginBottom: '1rem' }}>
-        <input
-          type="text"
-          placeholder="Search by name..."
-          value={searchTerm}
-          onChange={e => setSearchTerm(e.target.value)}
-        />
-
-        <select value={regionFilter} onChange={e => setRegionFilter(e.target.value)}>
-          <option value="All">All Regions</option>
-          <option value="Africa">Africa</option>
-          <option value="Americas">Americas</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
-        </select>
-      </div>
+      <Filter
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+        regionFilter={regionFilter}
+        onRegionChange={setRegionFilter}
+      />
 
       {isLoading && <p>Loading countries...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
       {!isLoading && !error && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-          {filteredCountries.map(country => (
-            <div key={country.cca3} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '1rem' }}>
-              <img src={country.flags.png} alt={`Flag of ${country.name.common}`} style={{ width: '100%' }} />
-              <h2>{country.name.common}</h2>
-              <p><strong>Region:</strong> {country.region}</p>
-              <p><strong>Population:</strong> {country.population.toLocaleString()}</p>
-            </div>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '1rem',
+          }}
+        >
+          {filteredCountries.map((country) => (
+            <CountryCard key={country.cca3} country={country} />
           ))}
         </div>
       )}
