@@ -4,7 +4,8 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Countries/', // Make sure this matches your GitHub repository name
+  // Remove base path for Vercel deployment (use root path)
+  // base: '/Countries/', // Only needed for GitHub Pages
   build: {
     outDir: 'dist',
   },
