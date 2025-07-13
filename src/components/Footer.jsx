@@ -71,23 +71,10 @@ function Footer() {
             </li>
           </ul>
         </div>
-        
-        <div className="footer-section">
-          <h4>Features</h4>
-          <ul className="feature-list">
-            <li>🔍 Real-time Search</li>
-            <li>🌎 Region Filtering</li>
-            <li>📱 Responsive Design</li>
-            <li>✨ Interactive Cards</li>
-          </ul>
-        </div>
       </div>
       
       <div className="footer-bottom">
         <p>&copy; {currentYear} Country Explorer. Built with ❤️ using React.</p>
-        <p className="footer-note">
-          Click the header to reset filters • Hover cards for animations
-        </p>
       </div>
     </footer>
   );
