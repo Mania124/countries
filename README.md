@@ -44,8 +44,8 @@ Experience the Country Explorer in action at: `https://countries-dusky-five.verc
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd Countries
+https://github.com/Mania124/countries.git
+cd countries
 ```
 
 2. Install dependencies:
